@@ -63,3 +63,47 @@
     (is (= (find-odd [2 2 4 6]) '()))
     (is (= (find-odd [1 1 1 3]) '(1 1 1 3)))
     ))
+
+; ;; #26 
+; (deftest fib-test
+;   (testing "Fibonacci Sequence"
+;     (is (= (__ 3) '(1 1 2)))
+;     (is (= (__ 6) '(1 1 2 3 5 8)))
+;     (is (= (__ 8) '(1 1 2 3 5 8 13 21)))
+
+; ))
+
+; ;; #27
+; (deftest palindrome-test
+;   (testing "Palindrome Detector"
+;     (is (false? (palindrome? '(1 2 3 4 5))))
+;     (is (true? (palindrome? "racecar")))
+;     (is (true? (palindrome? [:foo :bar :foo])))
+;     (is (true? (palindrome? '(1 1 3 3 1 1))))
+;     (is (false? (palindrome? '(:a :b :c))))
+; ))
+
+; ;; 29
+; (deftest getcaps-test)
+;   (testing "Get the Caps"
+;     (is (= (__ "HeLlO, WoRlD!") "HLOWRD"))
+;     (is (empty? (__ "nothing")))
+;     (is (= (__ "$#A(*&987Zf") "AZ"))
+; ))
+
+
+;; #31
+(deftest packseq-test
+  (testing "Pack a Sequence"
+    (is (= (packseq [1 1 2 1 1 1 3 3]) '((1 1) (2) (1 1 1) (3 3))))
+    (is (= (packseq [:a :a :b :b :c]) '((:a :a) (:b :b) (:c))))
+    (is (= (packseq [[1 2] [1 2] [3 4]]) '(([1 2] [1 2]) ([3 4]))))
+    ))
+    
+;; #32
+(deftest dupseq-test
+  (testing "Duplicate a Sequence"
+    (is (= (dupseq [1 2 3]) '(1 1 2 2 3 3)))
+    (is (= (dupseq [:a :a :b :b]) '(:a :a :a :a :b :b :b :b)))
+    (is (= (dupseq [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))
+    ))

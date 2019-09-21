@@ -41,4 +41,62 @@
 
 ;; #25 Find the odd numbers
 (defn find-odd [elms]
+  "returns odd numbers in a sequence"
   (filter odd? elms))
+
+; ;; #26 Fibonacci Sequence
+; (defn fib [n]
+;   "returns first n fibonacci numbers"
+;   (cond
+;   (if (= n 1) '(1) (concat (+ (fib (- n 1)) (fib (- n 2)) ) (fib (- n 1))))  
+; )
+
+; ;; #27 Palindrome Detector
+; (defn palindrome? [elms]
+;   "returns true of given sequence is palindrome"
+;   (and (= (first elms)(last elms)) 
+;     (palindrome? 
+;       (if (string? elms ) (subs elms 0 (dec (count elms ))) (subvec elms 0 (dec (count elms)))))
+;   ) 
+; )
+
+; ;; #28 Flatten a Sequence
+; (defn my-flatten [elms]
+;   "removes nested sequences to form one dimensional sequence"
+
+; )
+
+; ;; #29 Get the Caps
+; (defn getcaps [string]
+;   "returns new string containing only capital letters"
+
+;   )
+
+
+;; #31 Pack a Sequence 
+
+;; Helper 
+(defn numrep [[frst & others]]
+  "return number of consecutive duplicates from the start of a sequence"
+  (cond
+    (nil? frst) 0
+    (empty? others) 1
+    (= frst (first others)) (+ 1 (numrep others))
+    :else 1
+  ))
+
+;; #31 Pack a Sequence
+(defn packseq [vec]
+  "return sequence with consecutive duplicates into sublists"
+  (if (empty? vec) () 
+  (concat (list (repeat (numrep vec) (first vec))) (packseq (subvec vec (numrep vec))))
+  ))
+
+;; alt solution: (partition-by identity?)
+
+
+;; #32 Duplicate a Sequence
+(defn dupseq [elms]
+  "returns sequence with each element duplicated"
+  (apply concat (map #(list % %) elms))
+  )
