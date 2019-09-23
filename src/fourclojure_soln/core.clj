@@ -44,12 +44,23 @@
   "returns odd numbers in a sequence"
   (filter odd? elms))
 
-; ;; #26 Fibonacci Sequence
-; (defn fib [n]
-;   "returns first n fibonacci numbers"
-;   (cond
-;   (if (= n 1) '(1) (concat (+ (fib (- n 1)) (fib (- n 2)) ) (fib (- n 1))))  
-; )
+
+;; #26 Fibonacci Sequence
+
+;; Helper
+(defn fib [n]
+  "returns nth fibonacci number"
+  (cond 
+    (<= n 2) 1
+    :else (+ (fib (- n 1)) (fib (- n 2)))
+  )
+)
+;; Fib Sequence
+(defn fiblist [n]
+  "returns first n fibonacci numbers"
+  (map fib (range 1 (inc n)))
+)
+
 
 ; ;; #27 Palindrome Detector
 ; (defn palindrome? [elms]
@@ -66,11 +77,12 @@
 
 ; )
 
-; ;; #29 Get the Caps
-; (defn getcaps [string]
-;   "returns new string containing only capital letters"
+;; #29 Get the Caps
+(defn getcaps [string]
+  "returns new string containing only capital letters"
+  (apply str (filter #(Character/isUpperCase %) string))
+  )
 
-;   )
 
 
 ;; #31 Pack a Sequence 
@@ -85,7 +97,7 @@
     :else 1
   ))
 
-;; #31 Pack a Sequence
+;; Pack a Sequence
 (defn packseq [vec]
   "return sequence with consecutive duplicates into sublists"
   (if (empty? vec) () 

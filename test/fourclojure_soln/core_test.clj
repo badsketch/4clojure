@@ -64,14 +64,14 @@
     (is (= (find-odd [1 1 1 3]) '(1 1 1 3)))
     ))
 
-; ;; #26 
-; (deftest fib-test
-;   (testing "Fibonacci Sequence"
-;     (is (= (__ 3) '(1 1 2)))
-;     (is (= (__ 6) '(1 1 2 3 5 8)))
-;     (is (= (__ 8) '(1 1 2 3 5 8 13 21)))
+;; #26 
+(deftest fib-test
+  (testing "Fibonacci Sequence"
+    (is (= (fiblist 3) '(1 1 2)))
+    (is (= (fiblist 6) '(1 1 2 3 5 8)))
+    (is (= (fiblist 8) '(1 1 2 3 5 8 13 21)))
 
-; ))
+))
 
 ; ;; #27
 ; (deftest palindrome-test
@@ -83,13 +83,13 @@
 ;     (is (false? (palindrome? '(:a :b :c))))
 ; ))
 
-; ;; 29
-; (deftest getcaps-test)
-;   (testing "Get the Caps"
-;     (is (= (__ "HeLlO, WoRlD!") "HLOWRD"))
-;     (is (empty? (__ "nothing")))
-;     (is (= (__ "$#A(*&987Zf") "AZ"))
-; ))
+;; 29
+(deftest getcaps-test
+  (testing "Get the Caps"
+    (is (= (getcaps "HeLlO, WoRlD!") "HLOWRD"))
+    (is (empty? (getcaps "nothing")))
+    (is (= (getcaps "$#A(*&987Zf") "AZ"))
+))
 
 
 ;; #31
