@@ -62,20 +62,25 @@
 )
 
 
-; ;; #27 Palindrome Detector
-; (defn palindrome? [elms]
-;   "returns true of given sequence is palindrome"
-;   (and (= (first elms)(last elms)) 
-;     (palindrome? 
-;       (if (string? elms ) (subs elms 0 (dec (count elms ))) (subvec elms 0 (dec (count elms)))))
-;   ) 
-; )
+;; #27 Palindrome Detector
+(defn palindrome? [elms]
+  "returns true of given sequence is palindrome"
+  (if (or (empty? elms) (= 1 (count elms))) true
+    (and (= (first elms)(last elms)) 
+      (palindrome? (subvec (vec elms) 1 (- (count elms ) 1))
+    )) 
+  )
+)
 
-; ;; #28 Flatten a Sequence
-; (defn my-flatten [elms]
-;   "removes nested sequences to form one dimensional sequence"
-
-; )
+;; #28 Flatten a Sequence
+(defn my-flatten [[frst & rst :as elms]]
+  "removes nested sequences to form one dimensional sequence"
+  (cond
+    (empty? elms) nil
+    (not (coll? frst)) (cons frst (my-flatten rst))
+    :else (concat (my-flatten frst) (my-flatten rst))
+  )
+)
 
 ;; #29 Get the Caps
 (defn getcaps [string]

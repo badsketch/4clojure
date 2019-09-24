@@ -73,15 +73,15 @@
 
 ))
 
-; ;; #27
-; (deftest palindrome-test
-;   (testing "Palindrome Detector"
-;     (is (false? (palindrome? '(1 2 3 4 5))))
-;     (is (true? (palindrome? "racecar")))
-;     (is (true? (palindrome? [:foo :bar :foo])))
-;     (is (true? (palindrome? '(1 1 3 3 1 1))))
-;     (is (false? (palindrome? '(:a :b :c))))
-; ))
+;; #27
+(deftest palindrome-test
+  (testing "Palindrome Detector"
+    (is (false? (palindrome? '(1 2 3 4 5))))
+    (is (true? (palindrome? "racecar")))
+    (is (true? (palindrome? [:foo :bar :foo])))
+    (is (true? (palindrome? '(1 1 3 3 1 1))))
+    (is (false? (palindrome? '(:a :b :c))))
+))
 
 ;; 29
 (deftest getcaps-test
@@ -90,6 +90,15 @@
     (is (empty? (getcaps "nothing")))
     (is (= (getcaps "$#A(*&987Zf") "AZ"))
 ))
+
+;; 28
+(deftest myflatten-test
+  (testing "Flatten a Sequence"
+    (is (= (my-flatten '((1 2) 3 [4 [5 6]])) '(1 2 3 4 5 6)))
+    (is (= (my-flatten ["a" ["b"] "c"]) '("a" "b" "c")))
+    (is (= (my-flatten '((((:a))))) '(:a)))
+  )
+)
 
 
 ;; #31
