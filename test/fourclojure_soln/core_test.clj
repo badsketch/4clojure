@@ -100,6 +100,14 @@
   )
 )
 
+;; #30 
+(deftest compress-test
+  (testing "Compress a Sequence"
+    (is (= (apply str (compress "Leeeeeerrroyyy")) "Leroy"))
+    (is (= (compress [1 1 2 3 3 3 2 2 3]) '(1 2 3 2 3)))
+    (is (= (compress [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2])))
+  )
+)
 
 ;; #31
 (deftest packseq-test
@@ -116,3 +124,14 @@
     (is (= (dupseq [:a :a :b :b]) '(:a :a :a :a :b :b :b :b)))
     (is (= (dupseq [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))
     ))
+
+;; #33
+(deftest repseq-test
+  (testing "Replicate a Sequence"
+    (is (= (repseq [1 2 3] 2) '(1 1 2 2 3 3)))
+    (is (= (repseq [:a :b] 4) '(:a :a :a :a :b :b :b :b)))
+    (is (= (repseq [4 5 6] 1) '(4 5 6)))
+    (is (= (repseq [[1 2] [3 4]] 2) '([1 2] [1 2] [3 4] [3 4])))
+    (is (= (repseq [44 33] 2) [44 44 33 33]))
+  )
+)

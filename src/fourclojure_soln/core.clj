@@ -88,7 +88,16 @@
   (apply str (filter #(Character/isUpperCase %) string))
   )
 
+;; #30 Compress a Sequence
+(defn compress [elms]
+  "removes consecutive duplicates from sequence"
+  (cond 
+    (or (empty? elms)(= 1 (count elms))) elms
+    (= (first elms)(first (rest elms)))  (compress (rest elms))
+    :else (concat (list (first elms)) (compress (rest elms)))
+))
 
+	
 
 ;; #31 Pack a Sequence 
 
@@ -117,3 +126,9 @@
   "returns sequence with each element duplicated"
   (apply concat (map #(list % %) elms))
   )
+
+;; #33 Replicate a Sequence
+(defn repseq [elms, n]
+  "returns sequence with each element repeated n times"
+  (apply concat (map #(repeat n %) elms))
+)
