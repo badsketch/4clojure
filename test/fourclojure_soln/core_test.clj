@@ -135,3 +135,21 @@
     (is (= (repseq [44 33] 2) [44 44 33 33]))
   )
 )
+
+;; #34
+(deftest myrange-test
+  (testing "Implement Range"
+    (is (= (myrange 1 4) '(1 2 3)))
+    (is (= (myrange -2 2) '(-2 -1 0 1)))
+    (is (= (myrange 5 8) '(5 6 7)))
+  )
+)
+
+;; #38
+(deftest mymax-test
+  (testing "Maximum Value"
+    (is (= (mymax 1 8 3 4) 8))
+    (is (= (mymax 30 20) 30))
+    (is (= (mymax 45 67 11) 67))
+  )
+)

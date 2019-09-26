@@ -149,3 +149,16 @@
   [elms, n]
   (apply concat (map #(repeat n %) elms))
 )
+
+;; #34 Implement Range
+(defn myrange [start end]
+  "creates list of all integers in given range"
+  (if (> start (dec end)) () (cons start (myrange (inc start) end)))
+)
+
+;; #38 Maximum Value
+(defn mymax 
+  "takes variable number of parameters and returns maximum value"
+  [& nums]
+  (reduce #(if (< %1 %2) %2 %1) nums)
+)
