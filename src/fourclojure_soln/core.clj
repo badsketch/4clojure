@@ -163,3 +163,23 @@
   [& nums]
   (reduce #(if (< %1 %2) %2 %1) nums)
 )
+
+;; #39 Interleave Two Sequences
+(defn my-interleave
+  "takes two sequences and returns first item from each, second from each, etc."
+  [seq1 seq2]
+  (cond
+    (or (empty? seq1) (empty? seq2)) []
+    (or (= (count seq1) 1)(= (count seq2) 1)) [(first seq1) (first seq2)]
+    :else (concat [(first seq1) (first seq2)] (my-interleave (rest seq1) (rest seq2)))
+  )
+)
+
+;; alt solution: (mapcat list l1 l2)
+
+;; #40 Interpose Two Sequences
+(defn my-interpose
+  "separates the items of a sequence by an arbitrary value"
+  [val elms]
+  (butlast (interleave elms (repeat (count elms) val)))
+)
