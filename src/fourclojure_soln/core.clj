@@ -151,13 +151,14 @@
 )
 
 ;; #34 Implement Range
-(defn myrange [start end]
+(defn my-range 
   "creates list of all integers in given range"
-  (if (> start (dec end)) () (cons start (myrange (inc start) end)))
+  [start end]
+  (if (> start (dec end)) () (cons start (my-range (inc start) end)))
 )
 
 ;; #38 Maximum Value
-(defn mymax 
+(defn my-max 
   "takes variable number of parameters and returns maximum value"
   [& nums]
   (reduce #(if (< %1 %2) %2 %1) nums)

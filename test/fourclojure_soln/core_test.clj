@@ -92,7 +92,7 @@
 ))
 
 ;; 28
-(deftest myflatten-test
+(deftest my-flatten-test
   (testing "Flatten a Sequence"
     (is (= (my-flatten '((1 2) 3 [4 [5 6]])) '(1 2 3 4 5 6)))
     (is (= (my-flatten ["a" ["b"] "c"]) '("a" "b" "c")))
@@ -137,19 +137,19 @@
 )
 
 ;; #34
-(deftest myrange-test
+(deftest my-range-test
   (testing "Implement Range"
-    (is (= (myrange 1 4) '(1 2 3)))
-    (is (= (myrange -2 2) '(-2 -1 0 1)))
-    (is (= (myrange 5 8) '(5 6 7)))
+    (is (= (my-range 1 4) '(1 2 3)))
+    (is (= (my-range -2 2) '(-2 -1 0 1)))
+    (is (= (my-range 5 8) '(5 6 7)))
   )
 )
 
 ;; #38
-(deftest mymax-test
+(deftest my-max-test
   (testing "Maximum Value"
-    (is (= (mymax 1 8 3 4) 8))
-    (is (= (mymax 30 20) 30))
-    (is (= (mymax 45 67 11) 67))
+    (is (= (my-max 1 8 3 4) 8))
+    (is (= (my-max 30 20) 30))
+    (is (= (my-max 45 67 11) 67))
   )
 )
