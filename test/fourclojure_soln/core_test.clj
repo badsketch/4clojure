@@ -172,3 +172,22 @@
     (is (= (my-interpose :z [:a :b :c :d]) [:a :z :b :z :c :z :d]))
   )
 )
+
+;; #41
+(deftest dropnth-test
+  (testing "Drop Every Nth Item"
+    (is (= (dropnth [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))
+    (is (= (dropnth [:a :b :c :d :e :f] 2) [:a :c :e]))
+    (is (= (dropnth [1 2 3 4 5 6] 4) [1 2 3 5 6]))
+  )
+)
+
+;; #42
+(deftest fact-test
+  (testing "Factorial Fun"
+    (is (= (fact 1) 1))
+    (is (= (fact 3) 6))
+    (is (= (fact 5) 120))
+    (is (= (fact 8) 40320))
+  )
+)

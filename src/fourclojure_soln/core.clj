@@ -183,3 +183,19 @@
   [val elms]
   (butlast (interleave elms (repeat (count elms) val)))
 )
+
+;; #41 Drop Every Nth Item
+(defn dropnth
+  "drops every nth item from a sequence"
+  [elms n]
+  (flatten (concat (map #(if (= (count %) n) (butlast %) %) (partition-all n elms))))
+)
+
+;; 42 Factorial Fun
+(defn fact
+  "calculates nth factorial"
+  [n]
+  (if (zero? n) 1 (* n (fact (dec n))))
+)
+
+
