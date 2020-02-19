@@ -1,6 +1,6 @@
-(ns fourclojure-soln.core-test
+(ns fourclojure-soln.easy-test
   (:require [clojure.test :refer :all]
-            [fourclojure-soln.core :refer :all]))
+            [fourclojure-soln.easy :refer :all]))
 
 ;; #19 
 (deftest lastelm-test
@@ -190,17 +190,6 @@
     (is (= (fact 5) 120))
     (is (= (fact 8) 40320))
   )
-)
-
-;; #44
-(deftest rotate-test
-  (testing "Rotate sequence"
-    (is (= (rotate 2 [1 2 3 4 5]) '(3 4 5 1 2)))
-    (is (= (rotate -2 [1 2 3 4 5]) '(4 5 1 2 3)))  
-    (is (= (rotate 6 [1 2 3 4 5]) '(2 3 4 5 1)))
-    (is (= (rotate 1 '(:a :b :c)) '(:b :c :a)))
-    (is (= (rotate -4 '(:a :b :c)) '(:c :a :b)))
-  )  
 )
 
 ;; #48
