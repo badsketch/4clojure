@@ -202,3 +202,12 @@
     (is (= (rotate -4 '(:a :b :c)) '(:c :a :b)))
   )  
 )
+
+;; #48
+(deftest split-seq-test
+  (testing "Split a sequence"
+    (is (= (split-seq 3 [1 2 3 4 5 6]) [[1 2 3] [4 5 6]]))    
+    (is (= (split-seq 1 [:a :b :c :d]) [[:a] [:b :c :d]]))    
+    (is (= (split-seq 2 [[1 2] [3 4] [5 6]]) [[[1 2] [3 4]] [[5 6]]]))    
+  )
+)

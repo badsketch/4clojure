@@ -224,3 +224,11 @@
     :else (rotate (dec dir) (rotate-left seq))
   )
 )
+
+
+;; Split a sequence
+(defn split-seq
+  "splits a sequence into two parts"
+  [idx lst]
+  (list (take idx lst) (drop idx lst))
+)
