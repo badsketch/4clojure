@@ -1,6 +1,14 @@
 (ns fourclojure-soln.medium)
 
 
+;; 43 Reverse Interleave
+
+(defn rev-interleave [lst n] (apply map list (partition n lst)))
+
+;; partition groups by values so ((1 2) (3 4) (5 6))
+;; important step is that mapping over multiple lists applies the function to the first
+;; then second and so on.. of each map and then returns a single list with result of each
+
 ;; 44 Rotate Sequence
 
 ;; Helpers
