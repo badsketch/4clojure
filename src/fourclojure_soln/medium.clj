@@ -34,3 +34,17 @@
       :else (rotate (dec dir) (rotate-left seq))
     )
   )
+
+;; 46 Flipping Out
+(defn flip
+  "higher order function that reverses parameters of input function"
+  [f]
+  (fn [& args] (apply f (reverse args)))
+)
+
+;; 50 Split By Type
+(defn split-type
+  "takes seq of different types and groups by type"
+  [lst]
+  (vals (group-by type lst))
+  )

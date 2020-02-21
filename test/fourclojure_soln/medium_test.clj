@@ -21,3 +21,21 @@
       (is (= (rotate -4 '(:a :b :c)) '(:c :a :b)))
     )  
   )
+
+;; #46
+(deftest flip-test
+  (testing "Flipped Out"
+    (is (= 3 ((flip nth) 2 [1 2 3 4 5])))
+    (is (= true ((flip >) 7 8)))
+    (is (= 4 ((flip quot) 2 8)))
+    (is (= [1 2 3] ((flip take) [1 2 3 4 5] 3)))
+    )
+  )
+
+;; #50
+(deftest split-type-test
+  (testing "Split By Type"
+    (is (= (set (split-type [1 :a 2 :b 3 :c])) #{[1 2 3] [:a :b :c]}))
+    (is (= (set (split-type [:a "foo"  "bar" :b])) #{[:a :b] ["foo" "bar"]}))
+    (is (= (set (split-type [[1 2] :a [3 4] 5 6 :b])) #{[[1 2] [3 4]] [:a :b] [5 6]}))
+    ))
