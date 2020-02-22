@@ -48,3 +48,17 @@
   [lst]
   (vals (group-by type lst))
   )
+
+;; 55 Count Occurrence
+(defn count-occ
+  "counts number of occurrences of each distinct item in sequence"
+  [xs]
+  (reduce (fn [m [k v]] (assoc m k (count v))) {} (group-by identity xs))
+  )
+
+;; 56
+(defn my-distinct
+  "removes duplicates and maintains order of original seq"
+  [xs]
+  (sort-by #(.indexOf xs %) (keys (group-by identity xs)))
+  )
