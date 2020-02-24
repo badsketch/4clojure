@@ -200,3 +200,13 @@
     (is (= (split-seq 2 [[1 2] [3 4] [5 6]]) [[[1 2] [3 4]] [[5 6]]]))    
   )
 )
+
+(deftest half-truth-test
+  (testing "Half Truths")
+   (is (= false (half-truth false false)))
+   (is (= true (half-truth true false)))
+   (is (= false (half-truth true)))
+   (is (= true (half-truth false true false)))
+   (is (= false (half-truth true true true)))
+   (is (= true (half-truth true true true false)))
+  )

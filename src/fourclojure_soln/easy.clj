@@ -204,3 +204,14 @@
   [idx lst]
   (list (take idx lst) (drop idx lst))
 )
+
+;; 83
+(defn half-truth
+  "takes variable number of booleans and returns true of some are true, but not all true, otherwise false"
+  [& bools]
+  (cond
+    (every? true? bools) false
+    (some true? bools) true
+    :else false
+    )
+  )
