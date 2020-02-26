@@ -59,3 +59,12 @@
     (is (= (my-distinct (range 50)) (range 50)))
     )
   )
+
+(deftest fcomp-test
+  (testing "Function Composition")
+   (is (= [3 2 1] ((fcomp rest reverse) [1 2 3 4])))
+   (is (= 5 ((fcomp (partial + 3) second) [1 2 3 4])))
+   (is (= true ((fcomp zero? #(mod % 8) +) 3 5 7 9)))
+   (is (= "HELLO" ((fcomp #(.toUpperCase %) #(apply str %) take) 5 "hello world")))
+  )
+

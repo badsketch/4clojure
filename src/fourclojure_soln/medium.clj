@@ -62,3 +62,10 @@
   [xs]
   (sort-by #(.indexOf xs %) (keys (group-by identity xs)))
   )
+
+;; 58 
+(defn fcomp
+  "composes functions right to left"
+  [& fns]
+  (fn [& args] (reduce #(%2 %1) (apply (first (reverse fns)) args) (rest (reverse fns))))
+  )
