@@ -205,6 +205,13 @@
   (list (take idx lst) (drop idx lst))
 )
 
+;; 66
+(defn gcd
+  "calculates greatest common divisor"
+  [x y]
+  (if (zero? y) x (gcd y (mod x y)))
+  )
+
 ;; 83
 (defn half-truth
   "takes variable number of booleans and returns true of some are true, but not all true, otherwise false"

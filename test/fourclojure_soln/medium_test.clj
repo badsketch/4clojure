@@ -41,6 +41,15 @@
     )
   )
 
+;; #54
+(deftest my-partition-test
+  (testing "Partition sequence"
+    (is (= (my-partition 3 (range 9)) '((0 1 2) (3 4 5) (6 7 8))))
+    (is (= (my-partition 2 (range 8)) '((0 1) (2 3) (4 5) (6 7))))
+    (is (= (my-partition 3 (range 8)) '((0 1 2) (3 4 5))))
+    )
+  )
+
 ;; #55
 (deftest count-occ-test 
   (testing "Count Occurrence"

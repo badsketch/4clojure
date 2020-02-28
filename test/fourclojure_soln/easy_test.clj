@@ -201,6 +201,17 @@
   )
 )
 
+;; #66
+(deftest gcd-test
+  (testing "greatest common divisor"
+    (is (= (gcd 2 4) 2))
+    (is (= (gcd 2 4) 2))
+    (is (= (gcd 5 7) 1))
+    (is (= (gcd 1023 858) 33))
+    )
+  )
+
+;; #83
 (deftest half-truth-test
   (testing "Half Truths")
    (is (= false (half-truth false false)))
