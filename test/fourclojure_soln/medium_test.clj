@@ -69,11 +69,21 @@
     )
   )
 
+;; #58
 (deftest fcomp-test
   (testing "Function Composition")
    (is (= [3 2 1] ((fcomp rest reverse) [1 2 3 4])))
    (is (= 5 ((fcomp (partial + 3) second) [1 2 3 4])))
    (is (= true ((fcomp zero? #(mod % 8) +) 3 5 7 9)))
    (is (= "HELLO" ((fcomp #(.toUpperCase %) #(apply str %) take) 5 "hello world")))
+  )
+
+;; #59
+(deftest juxtaposition-test
+  (testing "juxtapose list of functions left to right"
+    (is (= [21 6 1] ((juxtaposition + max min) 2 3 5 1 6 4)))
+    (is (= ["HELLO" 5] ((juxtaposition #(.toUpperCase %) count) "hello")))
+    (is (= [2 6 4] ((juxtaposition :a :c :b) {:a 2, :b 4, :c 6, :d 8 :e 10})))
+    )
   )
 

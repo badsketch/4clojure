@@ -79,3 +79,9 @@
   [& fns]
   (fn [& args] (reduce #(%2 %1) (apply (first (reverse fns)) args) (rest (reverse fns))))
   )
+
+;; 59 Juxtaposition
+(defn juxtaposition
+  [& fns]
+  (fn [& args] (map #(apply %1 args) fns))
+  )

@@ -205,6 +205,20 @@
   (list (take idx lst) (drop idx lst))
 )
 
+;; 61
+(defn my-zipmap
+  "creates map from vector of keys and vector of values"
+  [kv vv]
+  (cond
+    (and (empty? kv) (empty? vv)) nil
+    (or (and (empty? kv) (= 1 (count vv))) (and (empty? vv) (= 1 (count kv)))) nil
+    :else (merge (assoc {} (first kv) (first vv)) (my-zipmap (rest kv) (rest vv)))
+    )
+  )
+
+;; holy shit use array map
+;; (apply array-map (interleave %1 %2))
+
 ;; 66
 (defn gcd
   "calculates greatest common divisor"

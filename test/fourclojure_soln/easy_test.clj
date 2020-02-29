@@ -201,6 +201,16 @@
   )
 )
 
+;; #61
+(deftest my-zipmap-test
+  (testing "zipmap implementation"
+    (is (= (my-zipmap [:a :b :c] [1 2 3]) {:a 1, :b 2, :c 3}))
+    (is (= (my-zipmap [1 2 3 4] ["one" "two" "three"]) {1 "one", 2 "two", 3 "three"}))
+    (is (= (my-zipmap [:foo :bar] ["foo" "bar" "baz"]) {:foo "foo", :bar "bar"}))
+    )
+  )
+
+
 ;; #66
 (deftest gcd-test
   (testing "greatest common divisor"
