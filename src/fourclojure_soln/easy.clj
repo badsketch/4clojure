@@ -219,6 +219,13 @@
 ;; holy shit use array map
 ;; (apply array-map (interleave %1 %2))
 
+;;63
+(defn group-seq
+  "given fn and seq, generate map where keys are results and values are those from seq"
+  [f xs]
+  (reduce (fn [dict val] (update-in dict [(f val)] #(if (nil? %) [val] (conj (dict (f val)) val)))) {} xs)
+  )
+
 ;; 66
 (defn gcd
   "calculates greatest common divisor"
