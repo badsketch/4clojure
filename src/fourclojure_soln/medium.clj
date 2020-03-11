@@ -85,3 +85,11 @@
   [& fns]
   (fn [& args] (map #(apply %1 args) fns))
   )
+
+;; 70
+(defn word-sort
+  [word-str]
+  (sort #(compare (clojure.string/lower-case %) (clojure.string/lower-case %2)) (clojure.string/split word-str #"[,|!|?|.]* [,|!|?|.]*|[,|!|?|.]*$"))
+  )
+
+;;ahhhh use /w+ to split by words and try using stabby macro
