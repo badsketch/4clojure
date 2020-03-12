@@ -93,3 +93,15 @@
   )
 
 ;;ahhhh use /w+ to split by words and try using stabby macro
+
+;; 74 Helper
+(defn is-perfect-square?
+  [n]
+  ((complement empty?) (filter #(= n (* % %)) (range (inc (/ n 2)))))
+  )
+
+;; 74
+(defn perfect-squares
+  [xs]
+  (clojure.string/join "," (filter #(is-perfect-square? (Integer. %)) (clojure.string/split xs #",")))
+  )

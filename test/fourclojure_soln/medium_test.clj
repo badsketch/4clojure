@@ -98,3 +98,11 @@
     (is (= (word-sort  "Fools fall for foolish follies.")
           ["fall" "follies" "foolish" "Fools" "for"]))
   ))
+
+;; 74
+(deftest perfect-square-test
+  (testing "filters out perfect square"
+    (is (= (perfect-squares "4,5,6,7,8,9") "4,9"))
+    (is (= (perfect-squares "15,16,25,36,37") "16,25,36"))
+    )
+  )
